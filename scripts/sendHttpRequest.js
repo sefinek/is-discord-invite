@@ -2,7 +2,7 @@ const https = require('https');
 const { name, version, devDependencies } = require('../package.json');
 
 const headers = {
-	'User-Agent': `${name}/${version} (+https://github.com/sefinek24/is-discord-invite)${process.env.JEST_WORKER_ID === undefined ? '' : ` jest/${devDependencies.jest.replace('^', '')}`}`,
+	'User-Agent': `${name}/${version} (+https://github.com/sefinek/is-discord-invite)${process.env.JEST_WORKER_ID === undefined ? '' : ` jest/${devDependencies.jest.replace('^', '')}`}`,
 	'Accept': 'application/json',
 	'Content-Type': 'application/json',
 	'Cache-Control': 'no-cache',

@@ -42,13 +42,13 @@
     "link",
     "url"
   ],
-  "homepage": "https://github.com/sefinek24/is-discord-invite#readme",
+  "homepage": "https://github.com/sefinek/is-discord-invite#readme",
   "bugs": {
-    "url": "https://github.com/sefinek24/is-discord-invite/issues"
+    "url": "https://github.com/sefinek/is-discord-invite/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sefinek24/is-discord-invite.git"
+    "url": "git+https://github.com/sefinek/is-discord-invite.git"
   },
   "funding": {
     "type": "individual",

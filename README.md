@@ -7,10 +7,10 @@
     </p>
     <a href="https://www.npmjs.com/package/is-discord-invite" target="_blank" title="is-discord-invite - npm" style="text-decoration:none">
         <img src="https://img.shields.io/npm/dt/is-discord-invite.svg?maxAge=3600" alt="npm downloads">
-        <img src="https://img.shields.io/github/issues/sefinek24/is-discord-invite" alt="Issues">
-        <img src="https://img.shields.io/github/last-commit/sefinek24/is-discord-invite" alt="Last commit">
-        <img src="https://img.shields.io/github/commit-activity/w/sefinek24/is-discord-invite" alt="Commit activity">
-        <img src="https://img.shields.io/github/languages/code-size/sefinek24/is-discord-invite" alt="Code size">
+        <img src="https://img.shields.io/github/issues/sefinek/is-discord-invite" alt="Issues">
+        <img src="https://img.shields.io/github/last-commit/sefinek/is-discord-invite" alt="Last commit">
+        <img src="https://img.shields.io/github/commit-activity/w/sefinek/is-discord-invite" alt="Commit activity">
+        <img src="https://img.shields.io/github/languages/code-size/sefinek/is-discord-invite" alt="Code size">
     </a>
 </div>
 
@@ -20,7 +20,7 @@ npm install is-discord-invite
 ```
 
 ## ✨ Example bot made in Discord.js
-> https://github.com/sefinek24/is-discord-invitation-bot
+> https://github.com/sefinek/is-discord-invitation-bot
 
 ## 🤔 » Table
 
@@ -153,10 +153,10 @@ console.log(result3); // false
 ## 🤝 » Help
 If you have any questions or just need help, please visit my [official website](https://sefinek.net), where you can find my email and my current Discord username. Feel free to send me a message on Discord or reach out via email.
 
-> Alternatively, you can create a new [Issue](https://github.com/sefinek24/is-discord-invite/issues/new).
+> Alternatively, you can create a new [Issue](https://github.com/sefinek/is-discord-invite/issues/new).
 
 ## 🌿 Pull requests
-Collaborators are welcome! If you'd like to contribute your suggestions or corrections to this project, we encourage you to create [Pull requests](https://github.com/sefinek24/is-discord-invite/pulls).
+Collaborators are welcome! If you'd like to contribute your suggestions or corrections to this project, we encourage you to create [Pull requests](https://github.com/sefinek/is-discord-invite/pulls).
 
 ## ⭐ » Thanks
-Thank you for your interest in this module. If you like it or find it useful, please consider starring the [repository](https://github.com/sefinek24/is-discord-invite).
+Thank you for your interest in this module. If you like it or find it useful, please consider starring the [repository](https://github.com/sefinek/is-discord-invite).
