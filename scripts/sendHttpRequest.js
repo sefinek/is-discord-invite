@@ -1,4 +1,4 @@
-const https = require('https');
+const https = require('node:https');
 const { name, version, devDependencies } = require('../package.json');
 
 const headers = {
@@ -22,32 +22,25 @@ const extractCode = discordLink => {
 	}
 };
 
-const httpRequest = (url, options) => {
-	return new Promise((resolve, reject) => {
-		const req = https.get(url, options, (res) => {
-			let data = '';
-
-			res.on('data', chunk => {
-				data += chunk;
-			});
-
-			res.on('end', () => {
-				try {
-					const parsedData = JSON.parse(data);
-					resolve({ data: parsedData, statusCode: res.statusCode });
-				} catch (err) {
-					reject(err);
-				}
-			});
+const httpRequest = (url, options) => new Promise((resolve, reject) => {
+	const req = https.get(url, options, res => {
+		let data = '';
+		res.on('data', chunk => data += chunk);
+		res.on('end', () => {
+			try {
+				resolve({ data: JSON.parse(data), statusCode: res.statusCode });
+			} catch (err) {
+				reject(err);
+			}
 		});
-
-		req.on('error', (err) => {
-			reject(err);
-		});
-
-		req.end();
 	});
-};
+
+	req.on('error', reject);
+	req.on('timeout', () => {
+		req.destroy();
+		reject(new Error('Request timed out.'));
+	});
+});
 
 module.exports = async url => {
 	if (!url) return { success: false, code: 200, isInvitation: false, message: 'Validation error. Missing invitation.', url: {}, inviter: null, guild: null };
