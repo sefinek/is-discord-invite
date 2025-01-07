@@ -155,7 +155,7 @@ If you have any questions or just need help, please visit my [official website](
 
 > Alternatively, you can create a new [Issue](https://github.com/sefinek/is-discord-invite/issues/new).
 
-## 🌿 Pull requests
+## 🌿 » Pull requests
 Collaborators are welcome! If you'd like to contribute your suggestions or corrections to this project, we encourage you to create [Pull requests](https://github.com/sefinek/is-discord-invite/pulls).
 
 ## ⭐ » Thanks
