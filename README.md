@@ -19,7 +19,7 @@
 npm install is-discord-invite
 ```
 
-## ✨ Example bot made in Discord.js
+## ✨ » Example bot made in Discord.js
 > https://github.com/sefinek/is-discord-invitation-bot
 
 ## 🤔 » Table
@@ -30,7 +30,7 @@ npm install is-discord-invite
 | regex    | No          | [View](#regex)  | [Regex](grex.md)                           | ✅       | ❌           | ❌           |
 
 
-## 🌍 API
+## 🌍 » API
 ### `online(message)` <div id="online"></div>
 Checks for valid Discord invitation links in the provided text and fetches invitation data.
 
