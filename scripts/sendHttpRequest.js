@@ -7,7 +7,7 @@ const headers = {
 	'Content-Type': 'application/json',
 	'Cache-Control': 'no-cache',
 	'Connection': 'keep-alive',
-	'DNT': '1'
+	'DNT': '1',
 };
 
 const extractCode = discordLink => {
@@ -61,10 +61,10 @@ module.exports = async url => {
 			url: {
 				full: url,
 				invitationCode: invitation,
-				fetchedCode: res.data.code || {}
+				fetchedCode: res.data.code || {},
 			},
 			inviter: res.data.inviter || {},
-			guild: res.data.guild || {}
+			guild: res.data.guild || {},
 		};
 	} catch (err) {
 		return { success: false, code: err.response?.status || undefined, isInvitation: false, message: err.message, url: {}, inviter: null, guild: null };
