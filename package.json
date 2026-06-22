@@ -21,14 +21,6 @@
     "url",
     "link"
   ],
-  "files": [
-    "lib",
-    "scripts",
-    "index.js",
-    "index.d.ts",
-    "LICENSE",
-    "README.md"
-  ],
   "homepage": "https://github.com/sefinek/is-discord-invite#readme",
   "bugs": {
     "url": "https://github.com/sefinek/is-discord-invite/issues"
@@ -50,6 +42,14 @@
     "lib": "lib",
     "test": "test"
   },
+  "files": [
+    "lib",
+    "scripts",
+    "index.js",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "m": "ncu -u && npm install && npm update",
     "test": "jest test"
