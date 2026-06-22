@@ -152,8 +152,7 @@ console.log(result3); // false
 
 ## 🤝 » Help
 If you have any questions or just need help, please visit my [official website](https://sefinek.net), where you can find my email and my current Discord username.
-
-> Alternatively, you can create a new [Issue](https://github.com/sefinek/is-discord-invite/issues/new).
+Alternatively, you can create a new [Issue](https://github.com/sefinek/is-discord-invite/issues/new).
 
 ## 🌿 » Pull requests
 Collaborators are welcome! If you'd like to contribute your suggestions or corrections to this project, we encourage you to create [Pull requests](https://github.com/sefinek/is-discord-invite/pulls).
