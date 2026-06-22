@@ -1,13 +1,10 @@
 const https = require('node:https');
 const { name, version, devDependencies } = require('../package.json');
 
+const testRunnerVersion = process.env.JEST_WORKER_ID === undefined ? '' : ` jest/${devDependencies.jest.replace('^', '')}`;
 const headers = {
-	'User-Agent': `${name}/${version} (+https://github.com/sefinek/is-discord-invite)${process.env.JEST_WORKER_ID === undefined ? '' : ` jest/${devDependencies.jest.replace('^', '')}`}`,
+	'User-Agent': `${name}/${version} (+https://github.com/sefinek/is-discord-invite)${testRunnerVersion}`,
 	'Accept': 'application/json',
-	'Content-Type': 'application/json',
-	'Cache-Control': 'no-cache',
-	'Connection': 'keep-alive',
-	'DNT': '1',
 };
 
 const extractCode = discordLink => {

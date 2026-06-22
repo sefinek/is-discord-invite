@@ -1,76 +1,104 @@
 /**
- * @module is-discord-invite
+ * Options for selecting which Discord invitation URL patterns should be checked.
  */
-
-declare module 'is-discord-invite' {
-    interface RegexFilters {
-        everything?: boolean;
-        defaultDiscordUrls?: boolean;
-        otherDiscordUrls?: boolean;
-        disboard?: boolean;
-        discordMe?: boolean;
-        discordhome?: boolean;
-    }
-
-    /**
-     * This module checks if a given string is an invitation link to a Discord server.
-     *
-     * @param {string} message - The input string to be checked.
-     * @param {object} options - An options object for customizing the behavior.
-     * @returns {boolean} - Returns `true` if the input is a valid Discord server invitation link, `false` otherwise.
-     */
-    export function regex(message: string, options?: RegexFilters): boolean;
-
-    interface Url {
-        full: string;
-        invitationCode: string;
-        fetchedCode: string;
-    }
-
-    interface Inviter {
-        id: string;
-        username: string;
-        avatar: string;
-        discriminator: string;
-        public_flags: number;
-        flags: number;
-        banner: string | null;
-        accent_color: string | null;
-        global_name: string;
-        avatar_decoration_data: string | null;
-        banner_color: string | null;
-    }
-
-    interface Guild {
-        id: string;
-        name: string;
-        splash: string;
-        banner: string;
-        description: string;
-        icon: string;
-        features: string[];
-        verification_level: number;
-        vanity_url_code: string | null;
-        nsfw_level: number;
-        nsfw: boolean;
-        premium_subscription_count: number;
-    }
-
-    interface SefinekAPIResponse {
-        success: boolean;
-        code: number;
-        isInvitation: boolean;
-        message: string;
-        url: Url | null;
-        inviter: Inviter | null;
-        guild: Guild | null;
-    }
-
-    /**
-     * Checks for valid Discord invitation links in a given text and fetches invitation data.
-     *
-     * @param {string} message - The input text to search for Discord invitation links.
-     * @returns {Promise<Object|null>} - Returns invitation data if a valid link is found, or `null` if no valid links are found.
-     */
-    export function online(message: string): Promise<SefinekAPIResponse>;
+export interface RegexOptions {
+	defaultDiscordUrls?: boolean;
+	otherDiscordUrls?: boolean;
+	disboard?: boolean;
+	discordMe?: boolean;
+	discordhome?: boolean;
+	everything?: boolean;
 }
+
+export type RegexFilters = RegexOptions;
+
+export interface InviteUrl {
+	full: string;
+	invitationCode: string;
+	fetchedCode: string;
+}
+
+export type Url = InviteUrl;
+
+export interface DiscordAvatarDecorationData {
+	asset?: string;
+	sku_id?: string;
+}
+
+export interface DiscordInviter {
+	id?: string;
+	username?: string;
+	avatar?: string | null;
+	discriminator?: string;
+	public_flags?: number;
+	premium_type?: number;
+	flags?: number;
+	banner?: string | null;
+	accent_color?: number | null;
+	global_name?: string | null;
+	avatar_decoration_data?: DiscordAvatarDecorationData | null;
+	banner_color?: string | null;
+}
+
+export interface DiscordGuild {
+	id?: string;
+	name?: string;
+	splash?: string | null;
+	banner?: string | null;
+	description?: string | null;
+	icon?: string | null;
+	features?: string[];
+	verification_level?: number;
+	vanity_url_code?: string | null;
+	nsfw_level?: number;
+	nsfw?: boolean;
+	premium_subscription_count?: number;
+}
+
+export interface OnlineInviteResponse {
+	success: true;
+	code: 200;
+	isInvitation: true;
+	message: 'Success';
+	url: InviteUrl;
+	inviter: DiscordInviter;
+	guild: DiscordGuild;
+	invitationCode?: undefined;
+	discordResponse?: undefined;
+}
+
+export interface OnlineNoInviteResponse {
+	success: boolean;
+	code?: number | null;
+	isInvitation: false;
+	message: string;
+	url: Record<string, unknown> | null;
+	inviter?: DiscordInviter | null;
+	guild?: DiscordGuild | null;
+	invitationCode?: string | null;
+	discordResponse?: unknown;
+}
+
+export type OnlineResponse = OnlineInviteResponse | OnlineNoInviteResponse;
+export type SefinekAPIResponse = OnlineResponse;
+
+/**
+ * Checks if the given string contains a Discord server invitation link.
+ *
+ * This validation is based only on URL patterns and does not verify whether
+ * the invitation exists on Discord.
+ *
+ * @param message The input string to check.
+ * @param options Optional filters for selecting supported invitation URL patterns.
+ * @returns `true` if the string contains a matching invitation URL, otherwise `false`.
+ */
+export function regex(message: string, options?: RegexOptions): boolean;
+
+/**
+ * Checks for Discord invitation links in the given string and verifies them
+ * against the Discord API.
+ *
+ * @param message The input string to search.
+ * @returns A promise resolving to invitation data or a negative validation result.
+ */
+export function online(message: string): Promise<OnlineResponse>;

@@ -1,46 +1,33 @@
 {
   "name": "is-discord-invite",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Verifies the presence of a Discord server invitation in a given string or message, with additional features for validating and confirming the authenticity and validity of the invitation link.",
   "keywords": [
-    "discord invitation check",
-    "discord invitation checker",
-    "discord invitation checking",
-    "discord invitation identifier",
-    "discord invitation identifying",
-    "discord invitation link",
-    "discord invitation test",
-    "discord invitation tester",
-    "discord invitation testing",
-    "discord invitation url",
-    "discord invitation validation",
-    "discord invitation validator",
-    "discord invitation verification",
-    "discord invitation verifier",
-    "discord invitation verify",
-    "discord invitation",
-    "discord invite check",
-    "discord invite checker",
-    "discord invite checking",
-    "discord invite identifier",
-    "discord invite identifying",
-    "discord invite link",
-    "discord invite test",
-    "discord invite tester",
-    "discord invite testing",
-    "discord invite url",
-    "discord invite validation",
-    "discord invite validator",
-    "discord invite verification",
-    "discord invite verifier",
-    "discord invite verify",
-    "discord invite",
     "discord",
-    "invitation",
+    "discord-invite",
+    "discord-invitation",
+    "discord-invite-link",
+    "discord-invite-url",
     "invite",
-    "is",
-    "link",
-    "url"
+    "invitation",
+    "invite-link",
+    "invite-url",
+    "validator",
+    "validation",
+    "verifier",
+    "verification",
+    "checker",
+    "identifier",
+    "url",
+    "link"
+  ],
+  "files": [
+    "lib",
+    "scripts",
+    "index.js",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
   ],
   "homepage": "https://github.com/sefinek/is-discord-invite#readme",
   "bugs": {
@@ -56,15 +43,23 @@
   },
   "license": "MIT",
   "author": "Sefinek <contact@sefinek.net> (https://sefinek.net)",
+  "type": "commonjs",
   "main": "index.js",
   "types": "index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
     "m": "ncu -u && npm install && npm update",
     "test": "jest test"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "globals": "^15.14.0",
-    "jest": "^29.7.0"
+    "@eslint/js": "^10.0.1",
+    "globals": "^17.6.0",
+    "jest": "^30.4.2"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
   }
 }

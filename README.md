@@ -50,7 +50,7 @@ If a valid invitation link is found, the returned data will have the following s
   "url": {
     "full": "https://discord.gg/crtm7UKz",
     "invitationCode": "crtm7UKz",
-    "fetched": "crtm7UKz"
+    "fetchedCode": "crtm7UKz"
   },
   "inviter": {
     "id": "614087461227986965",
@@ -151,7 +151,7 @@ console.log(result3); // false
 
 
 ## 🤝 » Help
-If you have any questions or just need help, please visit my [official website](https://sefinek.net), where you can find my email and my current Discord username. Feel free to send me a message on Discord or reach out via email.
+If you have any questions or just need help, please visit my [official website](https://sefinek.net), where you can find my email and my current Discord username.
 
 > Alternatively, you can create a new [Issue](https://github.com/sefinek/is-discord-invite/issues/new).
 
