@@ -56,8 +56,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "globals": "^17.6.0",
-    "jest": "^30.4.2"
+    "globals": "^17.13.0",
+    "jest": "^30.5.2"
   },
   "allowScripts": {
     "unrs-resolver@1.12.2": true
