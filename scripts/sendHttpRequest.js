@@ -1,9 +1,9 @@
 const https = require('node:https');
-const { name, version } = require('../package.json');
+const { name, version, homepage } = require('../package.json');
 
 const testRunnerVersion = process.env.NODE_TEST_CONTEXT ? ` node-test/${process.versions.node}` : '';
 const headers = {
-	'User-Agent': `${name}/${version} (+https://github.com/sefinek/is-discord-invite)${testRunnerVersion}`,
+	'User-Agent': `${name}/${version} (+${homepage})${testRunnerVersion}`,
 	'Accept': 'application/json',
 };
 
