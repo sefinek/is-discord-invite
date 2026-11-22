@@ -1,14 +1,16 @@
+const { describe, it } = require('node:test');
+const assert = require('node:assert/strict');
 const IsInvitation = require('../../index.js');
 
 describe('#IsInvitation.online', () => {
 	it('Empty string', async () => {
 		const result = await IsInvitation.online('');
 
-		expect(result.success).toBe(true);
-		expect(result.code).toBe(undefined);
-		expect(result.isInvitation).toBe(false);
-		expect(result.url).toBe(null);
-		expect(result.invitationCode).toBe(null);
+		assert.equal(result.success, true);
+		assert.equal(result.code, undefined);
+		assert.equal(result.isInvitation, false);
+		assert.equal(result.url, null);
+		assert.equal(result.invitationCode, null);
 	});
 
 	it('Is Discord invitation', async () => {
@@ -17,11 +19,11 @@ describe('#IsInvitation.online', () => {
 		const text = `Check out this Discord link: ${url}`;
 		const result = await IsInvitation.online(text);
 
-		expect(result.success).toBe(true);
-		expect(result.code).toBe(200);
-		expect(result.isInvitation).toBe(true);
-		expect(result.url.full).toBe(url);
-		expect(result.url.fetchedCode).toBe(invitationCode);
+		assert.equal(result.success, true);
+		assert.equal(result.code, 200);
+		assert.equal(result.isInvitation, true);
+		assert.equal(result.url.full, url);
+		assert.equal(result.url.fetchedCode, invitationCode);
 	});
 
 	it('Is not Discord invitation', async () => {
@@ -30,49 +32,49 @@ describe('#IsInvitation.online', () => {
 		const text = `Check out this Discord link: ${url}`;
 		const result = await IsInvitation.online(text);
 
-		expect(result.success).toBe(true);
-		expect(result.code).toBe(null);
-		expect(result.isInvitation).toBe(false);
-		expect(result.url).toBe(null);
-		expect(result.invitationCode).toBe(undefined);
+		assert.equal(result.success, true);
+		assert.equal(result.code, null);
+		assert.equal(result.isInvitation, false);
+		assert.equal(result.url, null);
+		assert.equal(result.invitationCode, undefined);
 	});
 
 	it('No valid links', async () => {
 		const text = 'This is a random text without any Discord links.';
 		const result = await IsInvitation.online(text);
 
-		expect(result.success).toBe(true);
-		expect(result.code).toBe(undefined);
-		expect(result.isInvitation).toBe(false);
-		expect(result.message).toBe('Not found any Discord invitation links');
-		expect(result.url).toBe(null);
-		expect(result.invitationCode).toBe(null);
-		expect(result.discordResponse).toBe(undefined);
+		assert.equal(result.success, true);
+		assert.equal(result.code, undefined);
+		assert.equal(result.isInvitation, false);
+		assert.equal(result.message, 'Not found any Discord invitation links');
+		assert.equal(result.url, null);
+		assert.equal(result.invitationCode, null);
+		assert.equal(result.discordResponse, undefined);
 	});
 
 	it('Error sending requests to the API server', async () => {
 		const text = 'https://discord.gg/invalidlink';
 		const result = await IsInvitation.online(text);
 
-		expect(result.success).toBe(true);
-		expect(result.code).toBe(null);
-		expect(result.isInvitation).toBe(false);
-		expect(result.message).toBe('No valid links found');
-		expect(result.url).toBe(null);
-		expect(result.invitationCode).toBe(undefined);
-		expect(result.discordResponse).toBe(undefined);
+		assert.equal(result.success, true);
+		assert.equal(result.code, null);
+		assert.equal(result.isInvitation, false);
+		assert.equal(result.message, 'No valid links found');
+		assert.equal(result.url, null);
+		assert.equal(result.invitationCode, undefined);
+		assert.equal(result.discordResponse, undefined);
 	});
 
 	it('Zero-width space', async () => {
 		const text = '​​​​​​';
 		const result = await IsInvitation.online(text);
 
-		expect(result.success).toBe(true);
-		expect(result.code).toBe(undefined);
-		expect(result.isInvitation).toBe(false);
-		expect(result.message).toBe('Not found any Discord invitation links');
-		expect(result.url).toBe(null);
-		expect(result.invitationCode).toBe(null);
-		expect(result.discordResponse).toBe(undefined);
+		assert.equal(result.success, true);
+		assert.equal(result.code, undefined);
+		assert.equal(result.isInvitation, false);
+		assert.equal(result.message, 'Not found any Discord invitation links');
+		assert.equal(result.url, null);
+		assert.equal(result.invitationCode, null);
+		assert.equal(result.discordResponse, undefined);
 	});
 });

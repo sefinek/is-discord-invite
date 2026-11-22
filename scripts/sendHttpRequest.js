@@ -1,7 +1,7 @@
 const https = require('node:https');
-const { name, version, devDependencies } = require('../package.json');
+const { name, version } = require('../package.json');
 
-const testRunnerVersion = process.env.JEST_WORKER_ID === undefined ? '' : ` jest/${devDependencies.jest.replace('^', '')}`;
+const testRunnerVersion = process.env.NODE_TEST_CONTEXT ? ` node-test/${process.versions.node}` : '';
 const headers = {
 	'User-Agent': `${name}/${version} (+https://github.com/sefinek/is-discord-invite)${testRunnerVersion}`,
 	'Accept': 'application/json',
